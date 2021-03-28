@@ -1,0 +1,11 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Peter Williams
+	email = pdubya@gmail.com
+[credential]
+	helper = /usr/local/bin/pass-git-helper
+[color "status"]
+	untracked = yellow bold
+	changed = yellow bold
+

@@ -1,0 +1,58 @@
+
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-crystal/vim-crystal'
+Plug 'vhdirk/vim-cmake'
+Plug 'cespare/vim-toml'
+Plug 'julialang/julia-vim'
+"Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+"Plug 'roxma/nvim-completion-manager'  " optional
+" Plug 'knubie/vim-kitty-navigator'
+" if has('nvim')
+"     Plug 'neoclide/coc.nvim'
+" endif
+call plug#end()
+
+setlocal expandtab
+setlocal shiftwidth=4
+setlocal softtabstop=4
+
+" julia
+let g:default_julia_version = '1.5'
+
+" language server
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+\   'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', '
+\       using LanguageServer;
+\       using Pkg;
+\       import StaticLint;
+\       import SymbolServer;
+\	if isfile("Project.toml") && isfile("Manifest.toml")
+\	    Pkg.activate(".")
+\	end
+\       env_path = dirname(Pkg.Types.Context().env.project_file);
+\       
+\       server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
+\       server.runlinter = true;
+\       run(server);
+\   ']
+\ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+set noswapfile
+set autoread
+set hidden
+set title
+filetype plugin indent on
+
+if has('nvim')
+    let g:airline#extensions#tabline#enabled = 1
+    nnoremap <F19> <Cmd>bprev<CR>
+    nnoremap <F20> <Cmd>bnext<CR>
+endif
