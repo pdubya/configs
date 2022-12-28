@@ -1,0 +1,6 @@
+*
+!.gitignore
+!julia/
+!nvim/
+!kitty/
+!zsh/
