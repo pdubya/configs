@@ -1,23 +1,36 @@
 
-call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'plasticboy/vim-markdown'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-crystal/vim-crystal'
-Plug 'vhdirk/vim-cmake'
-Plug 'cespare/vim-toml'
-Plug 'julialang/julia-vim'
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-crystal/vim-crystal'
+" Plugin 'vhdirk/vim-cmake'
+Plugin 'cespare/vim-toml'
+Plugin 'julialang/julia-vim'
 "Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
 "Plug 'roxma/nvim-completion-manager'  " optional
 " Plug 'knubie/vim-kitty-navigator'
 " if has('nvim')
 "     Plug 'neoclide/coc.nvim'
 " endif
-call plug#end()
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'quarto-dev/quarto-vim'
+call vundle#end()
+filetype plugin indent on
 
 setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
+setlocal tabstop=4
 
 " julia
 let g:default_julia_version = '1.5'
