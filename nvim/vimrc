@@ -2,57 +2,27 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-crystal/vim-crystal'
-" Plugin 'vhdirk/vim-cmake'
-Plugin 'cespare/vim-toml'
-Plugin 'julialang/julia-vim'
-"Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-"Plug 'roxma/nvim-completion-manager'  " optional
-" Plug 'knubie/vim-kitty-navigator'
-" if has('nvim')
-"     Plug 'neoclide/coc.nvim'
-" endif
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'quarto-dev/quarto-vim'
-call vundle#end()
+call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'plasticboy/vim-markdown'
+Plug 'vim-airline/vim-airline'
+Plug 'vhdirk/vim-cmake'
+Plug 'cespare/vim-toml'
+Plug 'julialang/julia-vim'
+Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'quarto-dev/quarto-vim'
+call plug#end()
+
 filetype plugin indent on
 
 setlocal expandtab
 setlocal shiftwidth=4
 setlocal softtabstop=4
 setlocal tabstop=4
-
-" julia
-let g:default_julia_version = '1.5'
-
-" language server
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-\   'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', '
-\       using LanguageServer;
-\       using Pkg;
-\       import StaticLint;
-\       import SymbolServer;
-\	if isfile("Project.toml") && isfile("Manifest.toml")
-\	    Pkg.activate(".")
-\	end
-\       env_path = dirname(Pkg.Types.Context().env.project_file);
-\       
-\       server = LanguageServer.LanguageServerInstance(stdin, stdout, env_path, "");
-\       server.runlinter = true;
-\       run(server);
-\   ']
-\ }
 
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
