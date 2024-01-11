@@ -39,4 +39,6 @@ if has('nvim')
     let g:airline#extensions#tabline#enabled = 1
     nnoremap <F19> <Cmd>bprev<CR>
     nnoremap <F20> <Cmd>bnext<CR>
+    nnoremap <Leader>q <Cmd>bdelete<CR>
 endif
+

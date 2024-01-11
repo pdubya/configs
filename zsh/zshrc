@@ -104,6 +104,8 @@ export EDITOR='nvim'
 alias e=$EDITOR
 alias qf='cd ~/Projects/rust-qfin'
 alias bm='cd ~/Projects/bcopm'
+export JULIA_NUM_THREADS=auto
+export JULIA_LOAD_PATH="~/Projects/blevy:$JULIA_LOAD_PATH"
 
 autoload -Uz compinit
 compinit
@@ -131,3 +133,6 @@ if [ -f '/home/pjw/vendor/google-cloud-sdk/path.zsh.inc' ]; then . '/home/pjw/ve
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/pjw/vendor/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/pjw/vendor/google-cloud-sdk/completion.zsh.inc'; fi
+
+autoload bashcompinit
+bashcompinit
