@@ -13,7 +13,9 @@ Plug 'vhdirk/vim-cmake'
 Plug 'cespare/vim-toml'
 Plug 'julialang/julia-vim'
 Plug 'knubie/vim-kitty-navigator', {'do': 'cp ./*.py ~/.config/kitty/'}
+Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'czheo/mojo.vim'
 " Plug 'quarto-dev/quarto-vim'
 Plug 'lahvak/quarto-vim', {'branch': 'julia_highlight'}
 call plug#end()
@@ -36,6 +38,7 @@ set title
 filetype plugin indent on
 
 if has('nvim')
+    set termguicolors
     let g:airline#extensions#tabline#enabled = 1
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
     nnoremap <F19> <Cmd>bprev<CR>
