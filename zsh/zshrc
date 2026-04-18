@@ -107,6 +107,7 @@ export PATH=$VCPKG_ROOT:$PATH
 bindkey -v
 export JULIA_NUM_THREADS=auto
 alias e=nvim
+alias cfg="cd $HOME/.config"
 
 autoload -Uz compinit
 compinit
@@ -138,7 +139,7 @@ if [ -f '$HOME/vendor/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/vend
 
 # !! Contents within this block are managed by juliaup !!
 
-path=('$HOME/.juliaup/bin' $path)
+path=($HOME'/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
@@ -149,3 +150,4 @@ export PATH
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"

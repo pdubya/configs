@@ -1,6 +1,6 @@
 *
 !.gitignore
 !julia/
-!nvim/
+!nvim/**/
 !kitty/
 !zsh/
