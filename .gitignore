@@ -1,6 +1,12 @@
 *
 !.gitignore
 !julia/
-!nvim/**/
+!julia/**
+!nvim/
+!nvim/**
 !kitty/
+!kitty/**
 !zsh/
+!zsh/**
+
+nvim-pack-lock.json
