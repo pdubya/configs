@@ -42,4 +42,5 @@ vim.opt.hidden = true
 vim.keymap.set("n", "<F20>", ":bnext<CR>", {desc = "Next buffer" })
 vim.keymap.set("n", "<F19>", ":bprevious<CR>", {desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>q", ":bdelete<CR>", {desc = "Delete buffer" })
+vim.keymap.set("v", "<leader>a", ":!column -t -s '|' -o '|'<CR>", {desc = "Align pipe-delimited table" })
 vim.g.ctrlp_user_command = 'git ls-files %s --exclude-standard'
