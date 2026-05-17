@@ -9,5 +9,9 @@
 !kitty/**
 !zsh/
 !zsh/**
+!cosmic/
+!cosmic/com.system76.CosmicComp/
+!cosmic/com.system76.CosmicComp/v1/
+!cosmic/com.system76.CosmicComp/v1/xkb_config
 
 nvim-pack-lock.json
