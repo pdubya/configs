@@ -7,6 +7,14 @@
 - **Editor**: Neovim 0.12.2 installed at `/opt`, config at `nvim/init.lua`, using built-in `vim.pack` package manager
 - **Neovim plugins** (all in `~/.local/share/nvim/site/pack/core/opt/`): mason.nvim, ctrlp.vim, nvim-web-devicons, lualine.nvim, julia-vim, vim-kitty-navigator
 
+## Symlinks required after a fresh clone
+
+This repo lives at `~/.config`. Kitty and Neovim configs are at their standard XDG paths already, but zsh needs a symlink:
+
+```sh
+ln -sf ~/.config/zsh/zshrc ~/.zshrc
+```
+
 ## Known fixes
 
 ### Nerd Font symbols (e.g. Julia filetype icon in lualine) showing as kanji
