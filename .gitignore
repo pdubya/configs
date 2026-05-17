@@ -1,5 +1,6 @@
 *
 !.gitignore
+!CLAUDE.md
 !julia/
 !julia/**
 !nvim/
