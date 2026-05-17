@@ -9,6 +9,8 @@
 !kitty/**
 !zsh/
 !zsh/**
+!git/
+!git/config
 !cosmic/
 !cosmic/com.system76.CosmicComp/
 !cosmic/com.system76.CosmicComp/v1/
