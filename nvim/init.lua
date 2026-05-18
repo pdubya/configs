@@ -3,6 +3,8 @@ vim.g.maplocalleader = " "
 
 vim.pack.add({
   'https://github.com/mason-org/mason.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
   'https://github.com/ctrlpvim/ctrlp.vim',
   { src = 'https://github.com/knubie/vim-kitty-navigator' },
   'https://github.com/nvim-tree/nvim-web-devicons',
@@ -26,6 +28,10 @@ require('mason').setup({
     }
   }
 })
+
+require('mason-lspconfig').setup({})
+
+vim.lsp.enable('julials')
 
 require('lualine').setup {
   options = { showtabline = 1 },
